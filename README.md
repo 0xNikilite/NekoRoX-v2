@@ -1,66 +1,92 @@
+# NekoRoX-v2 // Foobar2000 Theme
 
-# NekoRoX Foobar2000 Theme #
+![Preview](preview.png)
 
-![](https://github.com/catlinman/foobar2000/blob/master/preview.png)
+**A complete, modern dark theme for Foobar2000 with advanced features built-in.**
 
-_**The ultimate Foobar2000 theme to get you started.**_
+NekoRoX-v2 is an enhanced fork of NekoRox.
 
-NekoRoX is a fork of CaTRoX that includes a lot of custom
-panels, plugins and quality of life modules.
+## Features
 
-*What's included?*
+- **Modern Dark UI** - Clean interface with neko-inspired styling
+- **Flexible Layouts** - Mini, Micro, and Full player modes
+- **Smart Navigation** - Tree view and filter-based library browsing
+- **Album Art** - Cover viewer with coverflow support
+- **YouTube Integration** - Search and play audio from YouTube
+- **Lyrics Display** - Real-time synced lyrics panel
+- **Visualizations** - Waveform seekbar and spectrum analyzer
+- **Rich Presence** - Discord integration
+- **Biography Panel** - Live artist/track information lookup
+- **Last.fm Support** - Scrobbling and recommendations
+- **Ratings & Play Count** - Track your listening habits
+- **Always on Top** - Keep player visible while working
 
-- Clean and dark interface with neko-stylings.
-- Easy navigation and rearrangement of panels.
-- Tree and filter based navigation.
-- Mini and micro player modes.
-- Always on top functionality.
-- Simple rating and number of plays view.
-- Searching and playing of YouTube video audio.
-- Cover art viewer and cover flow panel.
-- Real time synced lyric viewer panel.
-- Visualization and amplitude seek-bar.
-- Discord rich presence integration.
-- Live biography lookup panel for tracks and artists.
-- Last.fm integration and simple tools.
-- **It works right out of the box.**
+**Works out of the box - no additional configuration needed.**
 
-## White Theme (AlphaRoX)
+## Installation
 
-Looking for a white/light theme alternative? Check out my new account's (@zealsprince) [AlphaRoX](https://github.com/zealsprince/foobar2000) fork!
+### Prerequisites
 
-![](https://github.com/zealsprince/foobar2000/blob/master/preview.png)
+- **Foobar2000** 32-bit
 
-## Installation ##
+### Installation Steps
 
-If at any point you make changes to the interface and wish to reset: There's
-an included layout file in the theme directory called *NekoRoX.fcl* which you
-can load via *ColumnsUI* to reset everything to the way it was intended.
+#### Standard Installation (Non-Portable)
 
-Once you have completed the steps further below, make sure to install the fonts
-included in the *fonts* directory.
+1. **copy those** to your Foobar2000 AppData folder:
+   - `configuration`, `smoothbrowser`, `user-components`
+<br>
 
-### Standard ###
+   ```
+   %appdata%\foobar2000\
+   ```
 
-If you have the standard non-portable version of Foobar2000 installed: make
-sure to copy the *smoothbrowser*, *configuration* and *user-components*
-folders to your application data directory located at *%appdata%/foobar2000*.
 
-Additionally, copy the *themes* directory to your root Foobar2000 installation directory.
+3. **copy the themes folder** to your Foobar2000 installation directory:
+   - `themes`
 
-### Portable ###
+<br>
 
-With the portable installation simply copy all the files in this directory to
-you root Foobar2000 installation directory.
+   ```
+   C:\Program Files\foobar2000\
+   ```
 
-## License ##
+4. **Install fonts** from the `fonts` folder (right-click > Install)
 
-I did not create nor do I own any of the plugins and scripts included in this
-setup. For the respective creators please view the comments and descriptions of
-the plugins and scripts included.
+5. **Import layout** in Foobar2000:
+   - `File > Preferences > Display > Columns UI > Layout > Import`
+   - Select: `themes\NekoRoX-v2\NekoRoX-v2.fcl`
 
-This is a heavily modified fork of the CaTRoX theme by eXtremeHunter1972. I
-take no credit for any of the underlying original code and styling. Credit for
-that goes entirely to the original creator.
+6. **Restart** Foobar2000
 
-Furthermore, the newest version implements a lot of [TheQwertiest](https://github.com/TheQwertiest) work with his [CaTRoX branch](https://github.com/TheQwertiest/CaTRoX_QWR/). I've merged a plethora of his code into my version of the theme to make what is hopefully the most elaborate and straight forward setup so far.
+#### Portable Installation
+
+1. **Copy all files** to your Foobar2000 portable directory
+
+2. **Install fonts** from the `fonts` folder
+
+3. **Import layout**:
+   - `File > Preferences > Display > Columns UI > Layout > Import`
+   - Select: `themes\NekoRoX-v2\NekoRoX-v2.fcl`
+
+4. **Restart** Foobar2000
+
+## Customization
+
+- **Change colors**: Right-click panels > Configure
+- **Rearrange panels**: `Preferences > Display > Columns UI > Layout`
+- **Toggle panels**: Use the top menu bar switches
+
+## Credits
+
+This theme builds upon the excellent work of:
+
+- **eXtremeHunter1972** - Original CaTRoX theme creator
+- **[TheQwertiest](https://github.com/TheQwertiest)** - CaTRoX_QWR improvements and code modernization
+- **Plugin developers** - See individual component licenses in `user-components`
+
+All plugins and scripts retain their original licenses and credits.
+
+## License
+
+This theme configuration is provided as-is. Individual components have their own licenses - please refer to their respective documentation in the `user-components` folder.
