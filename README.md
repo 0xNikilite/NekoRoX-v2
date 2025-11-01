@@ -13,7 +13,7 @@ NekoRoX-v2 is an enhanced fork of NekoRox.
 - **Smart Navigation** - Tree view and filter-based library browsing
 - **Album Art** - Cover viewer with coverflow support
 - **YouTube Integration** - Search and play audio from YouTube
-- **Lyrics Display** - Real-time synced lyrics panel
+- **Lyrics Display** - Real-time synced lyrics panel, now using OpenLyrics!
 - **Visualizations** - Waveform seekbar and spectrum analyzer
 - **Rich Presence** - Discord integration
 - **Biography Panel** - Live artist/track information lookup
