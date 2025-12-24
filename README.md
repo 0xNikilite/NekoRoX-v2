@@ -6,7 +6,7 @@
 
 NekoRoX-v2 is an enhanced fork of NekoRox.
 
-## Features
+## features
 
 - **Modern Dark UI** - Clean interface with neko-inspired styling
 - **Flexible Layouts** - Mini, Micro, and Full player modes
@@ -23,15 +23,15 @@ NekoRoX-v2 is an enhanced fork of NekoRox.
 
 **Works out of the box - no additional configuration needed.**
 
-## Installation
+## installation
 
-### Prerequisites
+### prerequisites
 
 - **Foobar2000** 32-bit
 
-### Installation Steps
+### installation Steps
 
-#### Standard Installation (Non-Portable)
+#### standard Installation (Non-Portable)
 
 1. **copy those** to your Foobar2000 AppData folder:
    - `configuration`, `smoothbrowser`, `user-components`
@@ -59,7 +59,7 @@ NekoRoX-v2 is an enhanced fork of NekoRox.
 
 6. **Restart** Foobar2000
 
-#### Portable Installation
+#### portable Installation
 
 1. **Copy all files** to your Foobar2000 portable directory
 
@@ -71,13 +71,13 @@ NekoRoX-v2 is an enhanced fork of NekoRox.
 
 4. **Restart** Foobar2000
 
-## Customization
+## customization
 
 - **Change colors**: Right-click panels > Configure
 - **Rearrange panels**: `Preferences > Display > Columns UI > Layout`
 - **Toggle panels**: Use the top menu bar switches
 
-## Credits
+## credits
 
 This theme builds upon the excellent work of:
 
@@ -87,6 +87,7 @@ This theme builds upon the excellent work of:
 
 All plugins and scripts retain their original licenses and credits.
 
-## License
+## license
 
-This theme configuration is provided as-is. Individual components have their own licenses - please refer to their respective documentation in the `user-components` folder.
+This theme configuration is provided as-is. Individual components have their own licenses. <br>
+If you are an original creator or rights holder and have concerns about your work being included in this repository, **please contact me** and I will promptly address the issue.
