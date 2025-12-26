@@ -1,6 +1,7 @@
 // ==PREPROCESSOR==
 // @name 'Common'
 // @author 'TheQwertiest'
+// @author 'Nikilite'
 // ==/PREPROCESSOR==
 
 //<editor-fold desc="Global constants">
@@ -21,94 +22,94 @@ g_theme.colors.panel_text_normal = _.RGB(128, 128, 128);
 
 /** @enum{number} */
 var g_font_style = {
-    regular:     0,
-    bold:        1,
-    italic:      2,
+    regular: 0,
+    bold: 1,
+    italic: 2,
     bold_italic: 3,
-    underline:   4,
-    strikeout:   8
+    underline: 4,
+    strikeout: 8
 };
 
 /** @enum{number} */
 var g_playback_order = {
-    default:         0,
+    default: 0,
     repeat_playlist: 1,
-    repeat_track:    2,
-    random:          3,
-    shuffle_tracks:  4,
-    shuffle_albums:  5,
+    repeat_track: 2,
+    random: 3,
+    shuffle_tracks: 4,
+    shuffle_albums: 5,
     shuffle_folders: 6
 };
 
 /** @enum{string|number} */
 var g_guifx = {
-    name:          'Guifx v2 Transports',
-    play:          1,
-    pause:         2,
-    stop:          3,
-    record:        4,
-    rewind:        5,
-    fast_forward:  6,
-    previous:      7,
-    next:          8,
-    replay:        9,
-    refresh:       0,
-    mute:          '!',
-    mute2:         '@',
-    volume_down:   '#',
-    volume_up:     '$',
-    thumbs_down:   '%',
-    thumbs_up:     '^',
-    shuffle:       '\&',
-    repeat:        '*',
-    repeat1:       '(',
-    zoom:          ')',
-    zoom_out:      '_',
-    zoom_in:       '+',
-    minus:         '-',
-    plus:          '=',
-    up:            'W',
-    down:          'S',
-    left:          'A',
-    right:         'D',
-    up2:           'w',
-    down2:         's',
-    left2:         'a',
-    right2:        'd',
-    start:         '{',
-    end:           '}',
-    top:           '?',
-    bottom:        '/',
+    name: 'Guifx v2 Transports',
+    play: 1,
+    pause: 2,
+    stop: 3,
+    record: 4,
+    rewind: 5,
+    fast_forward: 6,
+    previous: 7,
+    next: 8,
+    replay: 9,
+    refresh: 0,
+    mute: '!',
+    mute2: '@',
+    volume_down: '#',
+    volume_up: '$',
+    thumbs_down: '%',
+    thumbs_up: '^',
+    shuffle: '\&',
+    repeat: '*',
+    repeat1: '(',
+    zoom: ')',
+    zoom_out: '_',
+    zoom_in: '+',
+    minus: '-',
+    plus: '=',
+    up: 'W',
+    down: 'S',
+    left: 'A',
+    right: 'D',
+    up2: 'w',
+    down2: 's',
+    left2: 'a',
+    right2: 'd',
+    start: '{',
+    end: '}',
+    top: '?',
+    bottom: '/',
     jump_backward: '[',
-    jump_forward:  ']',
+    jump_forward: ']',
     slow_backward: ':',
-    slow_forward:  '\'',
-    eject:         '\'',
-    reject:        ';',
-    up3:           '.',
-    down3:         ',',
-    left3:         '<',
-    right3:        '>',
-    screen_up:     '|',
-    screen_down:   '\\',
-    guifx:         'g',
-    power:         'q',
-    checkmark:     'z',
-    close:         'x',
-    hourglass:     'c',
-    heart:         'v',
-    star:          'b',
-    fire:          'i',
-    medical:       'o',
-    police:        'p'
+    slow_forward: '\'',
+    eject: '\'',
+    reject: ';',
+    up3: '.',
+    down3: ',',
+    left3: '<',
+    right3: '>',
+    screen_up: '|',
+    screen_down: '\\',
+    guifx: 'g',
+    power: 'q',
+    checkmark: 'z',
+    close: 'x',
+    hourglass: 'c',
+    heart: 'v',
+    star: 'b',
+    fire: 'i',
+    medical: 'o',
+    police: 'p'
 };
 
 /** @enum{number} */
 var g_album_art_id = {
-    front:  0,
-    back:   1,
-    disc:   2,
-    icon:   3,
+    front: 0,
+    back: 1,
+    disc: 2,
+    icon: 3,
     artist: 4
 };
 
@@ -118,19 +119,19 @@ var g_album_art_id = {
 
 /** @enum{number} */
 var StringAlignment = {
-    near:   0,
+    near: 0,
     center: 1,
-    far:    2
+    far: 2
 };
 
 /** @enum{number} */
 var StringTrimming = {
     /** Specifies no trimming. */
-    none:          0,
+    none: 0,
     /** Specifies that the text is trimmed to the nearest character. */
-    char:          1,
+    char: 1,
     /** Specifies that text is trimmed to the nearest word. */
-    word:          2,
+    word: 2,
     /** Specifies that the text is trimmed to the nearest character, and an ellipsis is inserted at the end of a trimmed line. */
     ellipsis_char: 3,
     /** Specifies that text is trimmed to the nearest word, and an ellipsis is inserted at the end of a trimmed line. */
@@ -144,7 +145,7 @@ var StringFormatFlags = {
     /**
      * No flags.
      */
-    none:                    0x00000000,
+    none: 0x00000000,
     /**
      * Text is displayed from right to left.
      */
@@ -152,21 +153,21 @@ var StringFormatFlags = {
     /**
      * Text is vertically aligned.
      */
-    direction_vertical:      0x00000002,
+    direction_vertical: 0x00000002,
     /**
      * Parts of characters are allowed to overhang the string's layout rectangle.
      * By default, characters are repositioned to avoid any overhang.
      */
-    fit_black_box:           0x00000004,
+    fit_black_box: 0x00000004,
     /**
      * Control characters such as the left-to-right mark are shown in the output with a representative glyph.
      */
-    display_format_control:  0x00000020,
+    display_format_control: 0x00000020,
     /**
      * Fallback to alternate fonts for characters not supported in the requested font is disabled.
      * Any missing characters are displayed with the fonts missing glyph, usually an open square.
      */
-    no_font_fallback:        0x00000400,
+    no_font_fallback: 0x00000400,
     /**
      * Includes the trailing space at the end of each line.
      * By default the boundary rectangle returned by the MeasureString method excludes the space at the end of each line.
@@ -177,19 +178,19 @@ var StringFormatFlags = {
      * Text wrapping between lines when formatting within a rectangle is disabled.
      * This flag is implied when a point is passed instead of a rectangle, or when the specified rectangle has a zero line length
      */
-    no_wrap:                 0x00001000,
+    no_wrap: 0x00001000,
     /**
      *  Only entire lines are laid out in the formatting rectangle.
      *  By default layout continues until the end of the text, or until no more lines are visible as a result of clipping, whichever comes first.
      *  Note that the default settings allow the last line to be partially obscured by a formatting rectangle that is not a whole multiple of the line height.
      *  To ensure that only whole lines are seen, specify this value and be careful to provide a formatting rectangle at least as tall as the height of one line.
      */
-    line_limit:              0x00002000,
+    line_limit: 0x00002000,
     /**
      * Overhanging parts of glyphs, and unwrapped text reaching outside the formatting rectangle are allowed to show.
      * By default all text and glyph parts reaching outside the formatting rectangle are clipped.
      */
-    no_clip:                 0x00004000
+    no_clip: 0x00004000
 };
 
 /**
@@ -366,7 +367,7 @@ var qwr_utils = {
     /**
      * @param {number} m
      */
-    EnableSizing:         function (m) {
+    EnableSizing: function (m) {
         try {
             if (UIHacks.FrameStyle === 3 && UIHacks.DisableSizing) {
                 UIHacks.DisableSizing = false;
@@ -379,7 +380,7 @@ var qwr_utils = {
     /**
      * @param {number} m
      */
-    DisableSizing:        function (m) {
+    DisableSizing: function (m) {
         try {
             if (m && UIHacks.FrameStyle === 3 && !UIHacks.DisableSizing) {
                 UIHacks.DisableSizing = true;
@@ -392,21 +393,21 @@ var qwr_utils = {
     /**
      * @return {string}
      */
-    caller:               function () {
+    caller: function () {
         var caller = /^function\s+([^(]+)/.exec(/** @type{string} */ arguments.callee.caller.caller);
         return caller ? caller[1] : '';
     },
     /**
      * @return {string}
      */
-    function_name:        function () {
+    function_name: function () {
         var caller = /^function\s+([^(]+)/.exec(/** @type{string} */ arguments.callee.caller);
         return caller ? caller[1] : '';
     },
     /**
      * @param{Array<string>} fonts
      */
-    check_fonts:          function (fonts) {
+    check_fonts: function (fonts) {
         var msg = '';
         var fail_counter = 0;
 
@@ -426,7 +427,7 @@ var qwr_utils = {
     /**
      * @return{boolean}
      */
-    has_modded_jscript:   _.once(function () {
+    has_modded_jscript: _.once(function () {
         var ret = _.attempt(function () {
             // Methods from modded JScript
             wsh_utils.GetWndByHandle(666);
@@ -439,7 +440,7 @@ var qwr_utils = {
      * @param{string} site
      * @param{IFbMetadbHandle} metadb
      */
-    link:                 function (site, metadb) {
+    link: function (site, metadb) {
         if (!metadb) {
             return;
         }
@@ -486,7 +487,7 @@ var qwr_utils = {
     /**
      * @constructor
      */
-    MouseMoveSuppress:    function () {
+    MouseMoveSuppress: function () {
         this.is_supressed = function (x, y, m) {
             if (saved_x === x && saved_y === y && saved_m === m) {
                 return true;
@@ -522,7 +523,7 @@ var qwr_utils = {
     /**
      * @return {IWindow}
      */
-    get_fb2k_window:      _.once(function () {
+    get_fb2k_window: _.once(function () {
         if (!qwr_utils.has_modded_jscript()) {
             throw LogicError('Can\'t use extensions with vanilla JScript')
         }
@@ -562,7 +563,7 @@ var qwr_utils = {
     /**
      * @return {string}
      */
-    get_windows_version:  _.once(function () {
+    get_windows_version: _.once(function () {
         var version = '';
         var ret = _.attempt(function () {
             version = (WshShell.RegRead('HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\CurrentMajorVersionNumber')).toString();
@@ -736,3 +737,10 @@ var PanelProperties = (function () {
 var g_properties = PanelProperties.get_instance();
 
 var g_script_list = ['Common.js'];
+
+/**
+ * @return {number}
+ */
+function get_system_scrollbar_width() {
+    return utils.GetSystemMetrics(2);
+}
