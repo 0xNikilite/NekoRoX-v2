@@ -1,93 +1,61 @@
 # NekoRoX-v2 // Foobar2000 Theme
-
 ![Preview](preview.png)
+**A modern dark theme for Foobar2000, enhanced fork of NekoRox.**
 
-**A complete, modern dark theme for Foobar2000 with advanced features built-in.**
+## Features
+- Clean dark UI with neko-inspired styling
+- Mini, Micro and Full player layouts
+- Tree view and filter-based library browsing
+- Cover viewer with coverflow support
+- YouTube integration: search and play audio directly
+- Real-time synced lyrics via OpenLyrics
+- Waveform seekbar and spectrum analyzer
+- Discord Rich Presence
+- Live artist/track biography panel
+- Last.fm support (scrobbling + recommendations)
+- Ratings and play count tracking
+- Always on Top
 
-NekoRoX-v2 is an enhanced fork of NekoRox.
+Works out of the box, no extra setup needed.
 
-## features
+## Installation
+### Requirements
+- Foobar2000 32-bit
 
-- **Modern Dark UI** - Clean interface with neko-inspired styling
-- **Flexible Layouts** - Mini, Micro, and Full player modes
-- **Smart Navigation** - Tree view and filter-based library browsing
-- **Album Art** - Cover viewer with coverflow support
-- **YouTube Integration** - Search and play audio from YouTube
-- **Lyrics Display** - Real-time synced lyrics panel, now using OpenLyrics!
-- **Visualizations** - Waveform seekbar and spectrum analyzer
-- **Rich Presence** - Discord integration
-- **Biography Panel** - Live artist/track information lookup
-- **Last.fm Support** - Scrobbling and recommendations
-- **Ratings & Play Count** - Track your listening habits
-- **Always on Top** - Keep player visible while working
-
-**Works out of the box - no additional configuration needed.**
-
-## installation
-
-### prerequisites
-
-- **Foobar2000** 32-bit
-
-### installation Steps
-
-#### standard Installation (Non-Portable)
-
-1. **copy those** to your Foobar2000 AppData folder:
-   - `configuration`, `smoothbrowser`, `user-components`
-<br>
-
+### Standard (non-portable)
+1. Copy `configuration`, `smoothbrowser`, `user-components` to:
    ```
    %appdata%\foobar2000\
    ```
-
-
-3. **copy the themes folder** to your Foobar2000 installation directory:
-   - `themes`
-
-<br>
-
+2. Copy the `themes` folder to:
    ```
    C:\Program Files\foobar2000\
    ```
+3. Install fonts from the `fonts` folder (right-click > Install)
+4. Import the layout:
+   `File > Preferences > Display > Columns UI > Layout > Import`
+   Select: `themes\NekoRoX-v2\NekoRoX-v2.fcl`
+5. Restart Foobar2000
 
-4. **Install fonts** from the `fonts` folder (right-click > Install)
+### Portable
+1. Copy everything to your Foobar2000 portable folder
+2. Install the fonts
+3. Select ColumnsUI
+4. Import the layout:
+   `File > Preferences > Display > Columns UI > Layout > Import configuration...`
+   Select: `themes\NekoRoX-v2.fcl`
+5. Restart Foobar2000
 
-5. **Import layout** in Foobar2000:
-   - `File > Preferences > Display > Columns UI > Layout > Import`
-   - Select: `themes\NekoRoX-v2\NekoRoX-v2.fcl`
+## Customization
+- **Colors**: right-click any panel > Configure
+- **Layout**: `Preferences > Display > Columns UI > Layout`
+- **Panels**: use the switches in the top menu bar
 
-6. **Restart** Foobar2000
+## Credits
+- **eXtremeHunter1972** - original CaTRoX theme
+- **[TheQwertiest](https://github.com/TheQwertiest)** - CaTRoX_QWR
+- Plugin developers - see individual licenses in `user-components`
 
-#### portable Installation
-
-1. **Copy all files** to your Foobar2000 portable directory
-
-2. **Install fonts** from the `fonts` folder
-
-3. **Import layout**:
-   - `File > Preferences > Display > Columns UI > Layout > Import`
-   - Select: `themes\NekoRoX-v2\NekoRoX-v2.fcl`
-
-4. **Restart** Foobar2000
-
-## customization
-
-- **Change colors**: Right-click panels > Configure
-- **Rearrange panels**: `Preferences > Display > Columns UI > Layout`
-- **Toggle panels**: Use the top menu bar switches
-
-## credits
-
-This theme builds upon the excellent work of:
-
-- **eXtremeHunter1972** - Original CaTRoX theme creator
-- **[TheQwertiest](https://github.com/TheQwertiest)** - CaTRoX_QWR improvements and code modernization
-- **Plugin developers** - See individual component licenses in `user-components`
-
-All plugins and scripts retain their original licenses and credits.
-
-## license
-
-This theme configuration is provided as-is. Individual components have their own licenses. <br>
-If you are an original creator or rights holder and have concerns about your work being included in this repository, **please contact me** and I will promptly address the issue.
+## License
+This theme is provided as-is. Individual components retain their own licenses.
+If you're an original creator and have concerns about anything included here, reach out and I'll sort it out promptly.
