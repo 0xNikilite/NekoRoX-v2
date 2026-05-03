@@ -26,7 +26,7 @@ g_properties.add_properties(
 var g_has_modded_jscript = qwr_utils.has_modded_jscript();
 
 // Fixup properties
-(function() {
+(function () {
     g_properties.track_mode = Math.max(1, Math.min(3, g_properties.track_mode));
 
     if (g_properties.first_launch) {
@@ -41,20 +41,20 @@ var g_has_modded_jscript = qwr_utils.has_modded_jscript();
 })();
 
 var g_tr_i_fonts = {
-    info_name:  gdi.Font('Segoe Ui Semibold', 12),
+    info_name: gdi.Font('Segoe Ui Semibold', 12),
     info_value: gdi.Font('Segoe Ui', 12),
     dummy_text: gdi.Font('Segoe Ui Semibold', 24)
 };
 
 var g_tr_i_colors = {
-    background:       g_theme.colors.panel_back,
-    row_alternate:    _.RGB(35, 35, 35),
-    row_pressed:      g_theme.colors.panel_line_selected,
+    background: g_theme.colors.panel_back,
+    row_alternate: _.RGB(35, 35, 35),
+    row_pressed: g_theme.colors.panel_line_selected,
     row_pressed_rect: _.RGB(80, 80, 80),
-    line_color:       g_theme.colors.panel_line,
-    info_name:        _.RGB(160, 162, 164),
-    info_value:       g_theme.colors.panel_text_normal,
-    dummy_text:       _.RGB(70, 70, 70)
+    line_color: g_theme.colors.panel_line,
+    info_name: _.RGB(160, 162, 164),
+    info_value: g_theme.colors.panel_text_normal,
+    dummy_text: _.RGB(70, 70, 70)
 };
 
 var mouse_move_suppress = new qwr_utils.MouseMoveSuppress();
@@ -83,7 +83,7 @@ function on_size() {
 function on_mouse_move(x, y, m) {
     trace_call && trace_on_move && console.log(qwr_utils.function_name());
 
-    if (mouse_move_suppress.is_supressed(x,y,m)) {
+    if (mouse_move_suppress.is_supressed(x, y, m)) {
         return;
     }
 
@@ -357,7 +357,7 @@ function TrackInfoList() {
                 function () {
                     hover_item.edit_metadata();
                 },
-                {is_grayed_out: hover_item.is_readonly}
+                { is_grayed_out: hover_item.is_readonly }
             );
 
             cmm.append_item(
@@ -372,7 +372,7 @@ function TrackInfoList() {
 
                     this.initialize_list();
                 }, this),
-                {is_grayed_out: hover_item.is_readonly}
+                { is_grayed_out: hover_item.is_readonly }
             );
         }
 
@@ -427,7 +427,7 @@ function TrackInfoList() {
                 // To reinit row images
                 this.initialize_list();
             }, this),
-            {is_checked: g_properties.alternate_row_color}
+            { is_checked: g_properties.alternate_row_color }
         );
 
         appear.append_item(
@@ -436,7 +436,7 @@ function TrackInfoList() {
                 g_properties.show_metadata = !g_properties.show_metadata;
                 this.initialize_list();
             }, this),
-            {is_checked: g_properties.show_metadata}
+            { is_checked: g_properties.show_metadata }
         );
 
         appear.append_item(
@@ -445,7 +445,7 @@ function TrackInfoList() {
                 g_properties.show_fileinfo = !g_properties.show_fileinfo;
                 this.initialize_list();
             }, this),
-            {is_checked: g_properties.show_fileinfo}
+            { is_checked: g_properties.show_fileinfo }
         );
 
         // -------------------------------------------------------------- //
@@ -657,11 +657,11 @@ function TrackInfoList() {
 
     /** @enum {number} */
     var track_modes =
-        {
-            auto:     1,
-            playing:  2,
-            selected: 3
-        };
+    {
+        auto: 1,
+        playing: 2,
+        selected: 3
+    };
 
     // Window state
     var was_on_size_called = false;
@@ -704,7 +704,7 @@ function Row(x, y, w, h, metadb_arg, tag_name_arg, value_text_arg) {
                 row_pressed_image = null;
             }
 
-            draw_on_image(gr, this.x,this.y, this.w, this.h, false);
+            draw_on_image(gr, this.x, this.y, this.w, this.h, false);
         }
         else {
             if (!row_normal_image) {
@@ -773,7 +773,7 @@ function Row(x, y, w, h, metadb_arg, tag_name_arg, value_text_arg) {
         clear_image();
     };
 
-    function draw_on_image(g, x,y,w,h, is_pressed) {
+    function draw_on_image(g, x, y, w, h, is_pressed) {
         g.FillSolidRect(x, y, w, h, g_tr_i_colors.background);
         g.SetTextRenderingHint(TextRenderingHint.ClearTypeGridFit);
 
@@ -798,7 +798,7 @@ function Row(x, y, w, h, metadb_arg, tag_name_arg, value_text_arg) {
         var p = 5;
         var cur_x = x + p;
         {
-            var name_text = /** @type{string} */ [((tag_name === 'www') ? tag_name : _.capitalize(tag_name.toLowerCase()) + ':')];
+            var name_text = /** @type{string} */[((tag_name === 'www') ? tag_name : _.capitalize(tag_name.toLowerCase()) + ':')];
             var name_text_w = Math.ceil(/** @type{number} */ g.MeasureString(name_text, g_tr_i_fonts.info_name, 0, 0, 0, 0).Width) + 5;
             g.DrawString(name_text, g_tr_i_fonts.info_name, g_tr_i_colors.info_name, cur_x, y, name_text_w, h, info_text_format.value());
 

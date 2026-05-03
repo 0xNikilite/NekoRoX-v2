@@ -1,8 +1,16 @@
-Array.prototype.srt=function(){for(var z=0,t;t=this[z];z++){this[z]=[];var x=0,y=-1,n=true,i,j;while(i=(j=t.charAt(x++)).charCodeAt(0)){var m=(i==46||(i>=48&&i<=57));if(m!==n){this[z][++y]='';n=m;}
-this[z][y]+=j;}}
-this.sort(function(a,b){for(var x=0,aa,bb;(aa=a[x])&&(bb=b[x]);x++){aa=aa.toLowerCase();bb=bb.toLowerCase();if(aa!==bb){var c=Number(aa),d=Number(bb);if(c==aa&&d==bb){return c-d;}else return(aa>bb)?1:-1;}}
-return a.length-b.length;});for(var z=0;z<this.length;z++)
-this[z]=this[z].join('');};
+Array.prototype.srt = function () {
+    for (var z = 0, t; t = this[z]; z++) {
+        this[z] = []; var x = 0, y = -1, n = true, i, j; while (i = (j = t.charAt(x++)).charCodeAt(0)) {
+            var m = (i == 46 || (i >= 48 && i <= 57)); if (m !== n) { this[z][++y] = ''; n = m; }
+            this[z][y] += j;
+        }
+    }
+    this.sort(function (a, b) {
+        for (var x = 0, aa, bb; (aa = a[x]) && (bb = b[x]); x++) { aa = aa.toLowerCase(); bb = bb.toLowerCase(); if (aa !== bb) { var c = Number(aa), d = Number(bb); if (c == aa && d == bb) { return c - d; } else return (aa > bb) ? 1 : -1; } }
+        return a.length - b.length;
+    }); for (var z = 0; z < this.length; z++)
+        this[z] = this[z].join('');
+};
 
 //<editor-fold desc="timeout and interval shims">
 
@@ -11,7 +19,7 @@ this[z]=this[z].join('');};
  * @param {number} wait
  * @return {number}
  */
-function setInterval(func, wait){
+function setInterval(func, wait) {
     return window.SetInterval(func, wait);
 }
 /**
@@ -25,7 +33,7 @@ function clearInterval(id) {
  * @param {number} wait
  * @return {number}
  */
-function setTimeout(func, wait){
+function setTimeout(func, wait) {
     return window.SetTimeout(func, wait);
 }
 /**
@@ -42,7 +50,7 @@ g_callbacks = {
      * @param {string} event_name
      * @param {...*} var_args
      */
-    invoke:                 function (event_name, var_args) {
+    invoke: function (event_name, var_args) {
         this.validate_event_name(event_name);
 
         var callbacks = this[event_name];
@@ -53,7 +61,7 @@ g_callbacks = {
         var args = _.drop([].slice.call(arguments));
         _.over(callbacks)(args);
     },
-    register:               function (event_name, callback) {
+    register: function (event_name, callback) {
         if (!_.isFunction(callback)) {
             throw Error('Type Error: callback is not a function');
         }
@@ -83,7 +91,7 @@ function on_script_unload() {
 }
 
 _.mixin({
-    alpha_timer:          function (items_arg, hover_predicate_arg) {
+    alpha_timer: function (items_arg, hover_predicate_arg) {
         this.start = function () {
             var hover_in_step = 50;
             var hover_out_step = 15;
@@ -126,7 +134,7 @@ _.mixin({
         var items = items_arg;
         var hover_predicate = hover_predicate_arg;
     },
-    artistFolder:         function (artist) {
+    artistFolder: function (artist) {
         var a = _.fbSanitise(artist);
         var folder = folders.artists + a;
         if (_.isFolder(folder)) {
@@ -140,7 +148,7 @@ _.mixin({
             return fso.GetFolder(folder) + '\\';
         }
     },
-    blendColours:         function (c1, c2, f) {
+    blendColours: function (c1, c2, f) {
         c1 = _.toRGB(c1);
         c2 = _.toRGB(c2);
         var r = Math.round(c1[0] + f * (c2[0] - c1[0]));
@@ -149,7 +157,7 @@ _.mixin({
         return _.RGB(r, g, b);
     },
     /** @constructor */
-    button:               function (x, y, w, h, img_src, fn, tiptext) {
+    button: function (x, y, w, h, img_src, fn, tiptext) {
         this.paint = function (gr, alpha) {
             if (this.state !== "pressed") {
                 var hoverAlpha = !_.isNil(alpha) ? Math.min(this.hover_alpha, alpha) : this.hover_alpha;
@@ -215,7 +223,7 @@ _.mixin({
         this.set_image(img_src);
     },
     /** @constructor */
-    buttons:              function () {
+    buttons: function () {
         this.reset = function () {
             alpha_timer.stop();
         };
@@ -310,10 +318,10 @@ _.mixin({
             return item.state !== 'normal';
         });
     },
-    cc:                   function (name) {
+    cc: function (name) {
         return utils.CheckComponent(name, true);
     },
-    chrToImg:             function (chr, colour) {
+    chrToImg: function (chr, colour) {
         var size = 96;
         var temp_bmp = gdi.CreateImage(size, size);
         var temp_gr = temp_bmp.GetGraphics();
@@ -323,7 +331,7 @@ _.mixin({
         temp_gr = null;
         return temp_bmp;
     },
-    count:                function (collection, predicate) {
+    count: function (collection, predicate) {
         var count = 0;
         collection.forEach(function (item) {
             if (predicate(item)) {
@@ -333,12 +341,12 @@ _.mixin({
 
         return count;
     },
-    createFolder:         function (folder) {
+    createFolder: function (folder) {
         if (!_.isFolder(folder)) {
             fso.CreateFolder(folder);
         }
     },
-    deleteFile:           function (file) {
+    deleteFile: function (file) {
         if (_.isFile(file)) {
             try {
                 fso.DeleteFile(file);
@@ -346,14 +354,14 @@ _.mixin({
             }
         }
     },
-    dispose:              function () {
+    dispose: function () {
         _.forEach(arguments, function (item) {
             if (item) {
                 item.Dispose();
             }
         });
     },
-    drawImage:            function (gr, img, src_x, src_y, src_w, src_h, aspect, border, alpha) {
+    drawImage: function (gr, img, src_x, src_y, src_w, src_h, aspect, border, alpha) {
         if (!img) {
             return [];
         }
@@ -412,35 +420,35 @@ _.mixin({
         }
         return [src_x, src_y, src_w, src_h];
     },
-    drawOverlay:          function (gr, x, y, w, h) {
+    drawOverlay: function (gr, x, y, w, h) {
         gr.FillGradRect(x, y, w, h, 90, _.RGBA(0, 0, 0, 230), _.RGBA(0, 0, 0, 200));
     },
-    explorer:             function (file) {
+    explorer: function (file) {
         if (_.isFile(file)) {
             WshShell.Run('explorer /select,' + _.q(file));
         }
     },
-    fbDate:               function (ts) {
+    fbDate: function (ts) {
         // ES5 only
         var tmp = new Date(ts * 1000).toISOString();
         return tmp.substring(0, 10) + ' ' + tmp.substring(11, 19);
     },
-    fbEscape:             function (value) {
+    fbEscape: function (value) {
         return value.replace(/'/g, "''").replace(/[()\[\],$]/g, "'$&'");
     },
-    fbSanitise:           function (value) {
+    fbSanitise: function (value) {
         return value.replace(/[\/\\|:]/g, '-').replace(/\*/g, 'x').replace(/"/g, "''").replace(/[<>]/g, '_').replace(/\?/g, '').replace(/(?! )\s/g, '');
     },
-    fileExpired:          function (file, period) {
+    fileExpired: function (file, period) {
         return _.now() - _.lastModified(file) > period;
     },
-    formatNumber:         function (number, separator) {
+    formatNumber: function (number, separator) {
         return number.replace(/\B(?=(\d{3})+(?!\d))/g, separator);
     },
-    gdiFont:              function (name, size, style) {
+    gdiFont: function (name, size, style) {
         return gdi.Font(name, _.scale(size), style);
     },
-    getClipboardData:     function () {
+    getClipboardData: function () {
         return doc.parentWindow.clipboardData.getData("Text");
     },
     getElementsByTagName: function (value, tag) {
@@ -451,7 +459,7 @@ _.mixin({
         doc.close();
         return data;
     },
-    getFiles:             function (folder, exts, newest_first) {
+    getFiles: function (folder, exts, newest_first) {
         var files = [];
         if (_.isFolder(folder)) {
             var e = new Enumerator(fso.GetFolder(folder).Files);
@@ -472,7 +480,7 @@ _.mixin({
             return files;
         }
     },
-    hacks:                function () {
+    hacks: function () {
         this.disable = function () {
             this.uih.MainMenuState = this.MainMenuState.Show;
             this.uih.FrameStyle = this.FrameStyle.Default;
@@ -495,16 +503,16 @@ _.mixin({
             Auto: 2
         };
         this.FrameStyle = {
-            Default:      0,
+            Default: 0,
             SmallCaption: 1,
-            NoCaption:    2,
-            NoBorder:     3
+            NoCaption: 2,
+            NoBorder: 3
         };
         this.MoveStyle = {
             Default: 0,
-            Middle:  1,
-            Left:    2,
-            Both:    3
+            Middle: 1,
+            Left: 2,
+            Both: 3
         };
 
         this.uih = new ActiveXObject('UIHacks');
@@ -514,7 +522,7 @@ _.mixin({
         this.uih.MinSize = false;
         this.uih.MaxSize = false;
     },
-    help:                 function (x, y, flags) {
+    help: function (x, y, flags) {
         var m = window.CreatePopupMenu();
         _.forEach(ha_links, function (item, i) {
             m.AppendMenuItem(MF_STRING, i + 100, item[0]);
@@ -537,7 +545,7 @@ _.mixin({
         }
         _.dispose(m);
     },
-    img:                  function (value) {
+    img: function (value) {
         if (_.isFile(value)) {
             return gdi.Image(value);
         }
@@ -545,21 +553,21 @@ _.mixin({
             return gdi.Image(folders.images + value);
         }
     },
-    input:                function (prompt, title, value) {
+    input: function (prompt, title, value) {
         var tmp = _.input_cancellable(prompt, title, value);
         return _.isString(tmp) ? tmp : value;
     },
-    input_cancellable:    function (prompt, title, value) {
+    input_cancellable: function (prompt, title, value) {
         var p = prompt.replace(/"/g, _.q(' + Chr(34) + ')).replace(/\n/g, _.q(' + Chr(13) + '));
         var t = title.replace(/"/g, _.q(' + Chr(34) + '));
         var v = value.replace(/"/g, _.q(' + Chr(34) + '));
         var tmp = vb.eval('InputBox(' + _.q(p) + ', ' + _.q(t) + ', ' + _.q(v) + ')');
         return _.isString(tmp) ? tmp.trim() : tmp;
     },
-    isFile:               function (file) {
+    isFile: function (file) {
         return _.isString(file) ? fso.FileExists(file) : false;
     },
-    isFolder:             function (folder) {
+    isFolder: function (folder) {
         return _.isString(folder) ? fso.FolderExists(folder) : false;
     },
     /**
@@ -567,27 +575,27 @@ _.mixin({
      * @param b
      * @return {boolean} a instanceof b
      */
-    isInstanceOf:         function (a, b) {
+    isInstanceOf: function (a, b) {
         return (a instanceof b);
     },
-    isUUID:               function (value) {
+    isUUID: function (value) {
         var re = /^[0-9a-f]{8}-[0-9a-f]{4}-[345][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/;
         return re.test(value);
     },
-    jsonParse:            function (value) {
+    jsonParse: function (value) {
         try {
             return JSON.parse(value);
         } catch (e) {
             return [];
         }
     },
-    jsonParseFile:        function (file) {
+    jsonParseFile: function (file) {
         return _.jsonParse(_.open(file));
     },
-    lastModified:         function (file) {
+    lastModified: function (file) {
         return Date.parse(fso.Getfile(file).DateLastModified);
     },
-    lineWrap:             function (value, font, width) {
+    lineWrap: function (value, font, width) {
         var temp_bmp = gdi.CreateImage(1, 1);
         var temp_gr = temp_bmp.GetGraphics();
         var result = [];
@@ -603,11 +611,11 @@ _.mixin({
         temp_bmp = null;
         return result;
     },
-    lockSize:             function (w, h) {
+    lockSize: function (w, h) {
         window.MinWidth = window.MaxWidth = w;
         window.MinHeight = window.MaxHeight = h;
     },
-    menu:                 function (x, y, flags) {
+    menu: function (x, y, flags) {
         var m1 = window.CreatePopupMenu();
         var s1 = window.CreatePopupMenu();
         var s2 = window.CreatePopupMenu();
@@ -670,7 +678,7 @@ _.mixin({
         }
         _.dispose(m1, s1, s2, s3, s4, s5, s6, mm1, mm2, mm3, mm4, mm5, mm6);
     },
-    menu_item:            function (x, y, name, flags) {
+    menu_item: function (x, y, name, flags) {
         var menuManager = fb.CreateMainMenuManager();
 
         var menu = window.CreatePopupMenu();
@@ -688,7 +696,7 @@ _.mixin({
 
         _.dispose(menuManager, menu);
     },
-    nest:                 function (collection, keys) {
+    nest: function (collection, keys) {
         if (!keys.length) {
             return collection;
         }
@@ -701,10 +709,10 @@ _.mixin({
                 .value();
         }
     },
-    open:                 function (file) {
+    open: function (file) {
         return utils.ReadTextFile(file);
     },
-    p:                    function (property, default_) {
+    p: function (property, default_) {
         this.set = function (value) {
             this.value = value;
             window.SetProperty(this.property, this.value);
@@ -724,10 +732,10 @@ _.mixin({
             this.value = window.GetProperty(this.property, this.default_);
         }
     },
-    q:                    function (value) {
+    q: function (value) {
         return '"' + value + '"';
     },
-    recycleFile:          function (file) {
+    recycleFile: function (file) {
         if (_.isFile(file)) {
             app.Namespace(10).MoveHere(file);
         }
@@ -738,7 +746,7 @@ _.mixin({
      * @param {number} b
      * @return {number}
      */
-    RGB:                  function (r, g, b) {
+    RGB: function (r, g, b) {
         return 0xFF000000 | r << 16 | g << 8 | b;
     },
     /**
@@ -748,7 +756,7 @@ _.mixin({
      * @param {number} a
      * @return {number}
      */
-    RGBA:                 function (r, g, b, a) {
+    RGBA: function (r, g, b, a) {
         return a << 24 | r << 16 | g << 8 | b;
     },
     /**
@@ -756,10 +764,10 @@ _.mixin({
      * @param {number} a
      * @return {number}
      */
-    RGBtoRGBA:            function (rgb, a) {
+    RGBtoRGBA: function (rgb, a) {
         return a << 24 | (rgb & 0x00FFFFFF);
     },
-    run:                  function () {
+    run: function () {
         try {
             WshShell.Run(_.map(arguments, _.q).join(" "));
             return true;
@@ -767,7 +775,7 @@ _.mixin({
             return false;
         }
     },
-    runCmd:               function (command, wait, show) {
+    runCmd: function (command, wait, show) {
         try {
             WshShell.Run(command, show ? 1 : 0, !_.isNil(wait) ? wait : false);
             return true;
@@ -775,7 +783,7 @@ _.mixin({
             return false;
         }
     },
-    save:                 function (file, value) {
+    save: function (file, value) {
         if (_.isNil(value) || !_.isFolder(utils.FileTest(file, 'split').toArray()[0])) {
             return;
         }
@@ -783,7 +791,7 @@ _.mixin({
             console.log('Error saving to ' + file);
         }
     },
-    sb:                   function (t, x, y, w, h, v, fn) {
+    sb: function (t, x, y, w, h, v, fn) {
         this.paint = function (gr, colour) {
             gr.SetTextRenderingHint(4);
             if (this.v()) {
@@ -827,16 +835,16 @@ _.mixin({
         this.fn = fn;
         this.font = gdi.Font('FontAwesome', this.h);
     },
-    setClipboardData:     function (value) {
+    setClipboardData: function (value) {
         doc.parentWindow.clipboardData.setData('Text', value.toString());
     },
-    scale:                function (size) {
+    scale: function (size) {
         return Math.round(size * DPI / 72);
     },
-    shortPath:            function (file) {
+    shortPath: function (file) {
         return fso.GetFile(file).ShortPath;
     },
-    splitRGB:             function (c) {
+    splitRGB: function (c) {
         var tmp = c.split('-');
         if (tmp.length === 4) {
             return _.RGBA(tmp[0], tmp[1], tmp[2], tmp[3]);
@@ -845,7 +853,7 @@ _.mixin({
             return _.RGB(tmp[0], tmp[1], tmp[2]);
         }
     },
-    stripTags:            function (value) {
+    stripTags: function (value) {
         doc.open();
         var div = doc.createElement('div');
         div.innerHTML = value.toString().replace(/<[Pp][^>]*>/g, '').replace(/<\/[Pp]>/g, '<br>').replace(/\n/g, '<br>');
@@ -853,10 +861,10 @@ _.mixin({
         doc.close();
         return tmp;
     },
-    tagged:               function (value) {
+    tagged: function (value) {
         return value !== '' && value !== '?';
     },
-    textWidth:            function (value, font) {
+    textWidth: function (value, font) {
         var temp_bmp = gdi.CreateImage(1, 1);
         var temp_gr = temp_bmp.GetGraphics();
         var width = temp_gr.CalcTextWidth(value, font);
@@ -866,7 +874,7 @@ _.mixin({
         temp_bmp = null;
         return width;
     },
-    tf:                   function (t, metadb) {
+    tf: function (t, metadb) {
         if (!metadb) {
             return '';
         }
@@ -875,20 +883,20 @@ _.mixin({
         _.dispose(tfo);
         return str;
     },
-    tfe:                  function (t, force) {
+    tfe: function (t, force) {
         var tfo = fb.TitleFormat(t);
         var str = tfo.Eval(force);
         _.dispose(tfo);
         return str;
     },
-    toDb:                 function (volume) {
+    toDb: function (volume) {
         return 50 * Math.log(0.99 * volume + 0.01) / Math.LN10;
     },
-    toRGB:                function (a) {
+    toRGB: function (a) {
         var b = a - 0xFF000000;
         return [b >> 16, b >> 8 & 0xFF, b & 0xFF];
     },
-    toVolume:             function (db) {
+    toVolume: function (db) {
         if (db === -100) {
             return 0;
         }
@@ -902,7 +910,7 @@ _.mixin({
      * @param {Number} count
      * @param {boolean} fromStart
      */
-    trimArray:            function (array, count, fromStart) {
+    trimArray: function (array, count, fromStart) {
         if (array.length === count) {
             array.length = 0;
             return;
@@ -918,17 +926,17 @@ _.mixin({
             array.length -= count;
         }
     },
-    ts:                   function () {
+    ts: function () {
         return Math.floor(_.now() / 1000);
     },
-    tt:                   function (value, force) {
+    tt: function (value, force) {
         if (tooltip.Text !== _.toString(value) || force) {
             tooltip.Text = value;
             tooltip.Activate();
         }
     },
     /** @constructor */
-    tt_handler:           function () {
+    tt_handler: function () {
         this.showDelayed = function (text) {
             tt_timer.start(this.id, text);
         };
@@ -957,7 +965,7 @@ _.tt_handler.tt_timer = new function () {
         tt_caller = id;
 
         if (!tooltip_timer && tooltip.Text) {
-            _.tt(text, old_caller !== tt_caller );
+            _.tt(text, old_caller !== tt_caller);
         }
         else {
             this.force_stop(); /// < There can be only one tooltip present at all times, so we can kill the timer w/o any worries
@@ -986,7 +994,7 @@ _.tt_handler.tt_timer = new function () {
     };
 };
 
-g_callbacks.register('on_script_unload', function(){_.tt('');});
+g_callbacks.register('on_script_unload', function () { _.tt(''); });
 
 var doc = new ActiveXObject('htmlfile');
 var app = new ActiveXObject('Shell.Application');
@@ -1127,41 +1135,41 @@ var IDC_HELP = 32651;
 // Used in SetTextRenderingHint()
 // For more information, see: http://msdn.microsoft.com/en-us/library/ms534404(VS.85).aspx
 var TextRenderingHint =
-    {
-        SystemDefault:            0,
-        SingleBitPerPixelGridFit: 1,
-        SingleBitPerPixel:        2,
-        AntiAliasGridFit:         3,
-        AntiAlias:                4,
-        ClearTypeGridFit:         5
-    };
+{
+    SystemDefault: 0,
+    SingleBitPerPixelGridFit: 1,
+    SingleBitPerPixel: 2,
+    AntiAliasGridFit: 3,
+    AntiAlias: 4,
+    ClearTypeGridFit: 5
+};
 //--->
 // Used in SetSmoothingMode()
 // For more information, see: http://msdn.microsoft.com/en-us/library/ms534173(VS.85).aspx
 var SmoothingMode =
-    {
-        Invalid:     -1,
-        Default:     0,
-        HighSpeed:   1,
-        HighQuality: 2,
-        None:        3,
-        AntiAlias:   4
-    };
+{
+    Invalid: -1,
+    Default: 0,
+    HighSpeed: 1,
+    HighQuality: 2,
+    None: 3,
+    AntiAlias: 4
+};
 //--->
 // Used in SetInterpolationMode()
 // For more information, see: http://msdn.microsoft.com/en-us/library/ms534141(VS.85).aspx
 var InterpolationMode =
-    {
-        Invalid:             -1,
-        Default:             0,
-        LowQuality:          1,
-        HighQuality:         2,
-        Bilinear:            3,
-        Bicubic:             4,
-        NearestNeighbor:     5,
-        HighQualityBilinear: 6,
-        HighQualityBicubic:  7
-    };
+{
+    Invalid: -1,
+    Default: 0,
+    LowQuality: 1,
+    HighQuality: 2,
+    Bilinear: 3,
+    Bicubic: 4,
+    NearestNeighbor: 5,
+    HighQualityBilinear: 6,
+    HighQualityBicubic: 7
+};
 
 var MF_STRING = 0x00000000;
 var MF_GRAYED = 0x00000001;
@@ -1178,9 +1186,9 @@ var DEFAULT_ARTIST = '$meta(artist,0)';
 var N = window.Name + ':';
 
 try {
-	var DPI = WshShell.RegRead('HKCU\\Control Panel\\Desktop\\WindowMetrics\\AppliedDPI');
+    var DPI = WshShell.RegRead('HKCU\\Control Panel\\Desktop\\WindowMetrics\\AppliedDPI');
 } catch (e) {
-	var DPI = 96;
+    var DPI = 96;
 }
 
 var LM = _.scale(5);
@@ -1190,7 +1198,7 @@ var tooltip = window.CreateTooltip('Segoe UI', _.scale(9));
 tooltip.SetMaxWidth(1200);
 
 var folders = {};
-folders.home = fb.FoobarPath + "themes\\CaTRoX\\Scripts\\js_marc2003\\";
+folders.home = fb.FoobarPath + "themes\\NekoRoX-v2\\Scripts\\js_marc2003\\";
 folders.images = folders.home + 'images\\';
 folders.data = fb.ProfilePath + 'js_data\\';
 folders.artists = folders.data + 'artists\\';
@@ -1198,43 +1206,43 @@ folders.lastfm = folders.data + 'lastfm\\';
 
 var fontawesome = gdi.Font('FontAwesome', 48);
 var chars = {
-	up : '\uF077',
-	down : '\uF078',
-	close : '\uF00D',
-	rating_on : '\uF005',
-	rating_off : '\uF006',
-	heart_on : '\uF004',
-	heart_off : '\uF08A',
-	prev : '\uF049',
-	next : '\uF050',
-	play : '\uF04B',
-	pause : '\uF04C',
-	stop : '\uF04D',
-	preferences : '\uF013',
-	search : '\uF002',
-	console : '\uF120',
-	info : '\uF05A',
-	audioscrobbler : '\uF202',
-	minus : '\uF068',
-	music : '\uF001',
-	menu : '\uF0C9'
+    up: '\uF077',
+    down: '\uF078',
+    close: '\uF00D',
+    rating_on: '\uF005',
+    rating_off: '\uF006',
+    heart_on: '\uF004',
+    heart_off: '\uF08A',
+    prev: '\uF049',
+    next: '\uF050',
+    play: '\uF04B',
+    pause: '\uF04C',
+    stop: '\uF04D',
+    preferences: '\uF013',
+    search: '\uF002',
+    console: '\uF120',
+    info: '\uF05A',
+    audioscrobbler: '\uF202',
+    minus: '\uF068',
+    music: '\uF001',
+    menu: '\uF0C9'
 };
 
 var popup = {
-    ok:       0,
-    yes_no:   4,
-    yes:      6,
-    no:       7,
-    stop:     16,
+    ok: 0,
+    yes_no: 4,
+    yes: 6,
+    no: 7,
+    stop: 16,
     question: 32,
-    info:     64
+    info: 64
 };
 
 var image = {
-    crop:     0,
+    crop: 0,
     crop_top: 1,
-    stretch:  2,
-    centre:   3
+    stretch: 2,
+    centre: 3
 };
 
 var ha_links = [
