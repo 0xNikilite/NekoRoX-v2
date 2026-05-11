@@ -117,7 +117,7 @@ function userinterface() {
         var cust_f = window.GetProperty("_Custom.Font (Name,Size,Style[0-4])", "Segoe UI,16,0");
         if (custom_col && cust_f.length) {cust_f = cust_f.split(",");try {this.font = gdi.Font(cust_f[0], Math.round(parseFloat(cust_f[1])), Math.round(parseFloat(cust_f[2])));} catch (e) {}}
         else if (this.dui) this.font = window.GetFontDUI(2); else this.font = window.GetFontCUI(0);
-        try {this.font.Name; this.font.Size; this.font.Style;} catch (e) {this.font = gdi.Font("Segoe UI", 16, 0); this.trace("JScript Panel is unable to use your default font. Using Segoe UI at default size & style instead");}
+        try {this.font.Name; this.font.Size; this.font.Style;} catch (e) {this.font = gdi.Font("InconsolataGo QiHei NF", 16, 0); this.trace("JScript Panel is unable to use your default font. Using InconsolataGo QiHei NF at default size & style instead");}
         orig_font_sz = window.GetProperty("SYSTEM.Font Size", 16);
         if (this.font.Size != orig_font_sz) window.SetProperty(" Zoom Font Size (%)", 100);
         orig_font_sz = this.font.Size; window.SetProperty("SYSTEM.Font Size", this.font.Size);
@@ -168,8 +168,8 @@ function userinterface() {
             } else {this.node_sz += step; this.calc_text(); p.on_size(); window.Repaint();}
         } else {
             if (p.scale < 0.7) return; p.scale += step * 0.1; p.scale = Math.max(p.scale, 0.7);
-            p.f_font = gdi.Font("Segoe UI", p.scale > 1.05 ? Math.floor(11 * this.scale * p.scale) : 11 * this.scale * p.scale, 1);
-            p.f_but_ft = gdi.Font("Segoe UI", p.scale > 1.05 ? Math.floor(9 * this.scale * p.scale) : 9 * this.scale * p.scale, 1);
+            p.f_font = gdi.Font("InconsolataGo QiHei NF", p.scale > 1.05 ? Math.floor(11 * this.scale * p.scale) : 11 * this.scale * p.scale, 1);
+            p.f_but_ft = gdi.Font("InconsolataGo QiHei NF", p.scale > 1.05 ? Math.floor(9 * this.scale * p.scale) : 9 * this.scale * p.scale, 1);
             p.calc_text(); but.refresh(true);
             window.SetProperty(" Zoom Filter Size (%)", Math.round(p.scale * 100)); p.search_paint();
         }
@@ -202,7 +202,7 @@ function userinterface() {
         var blur_tmp = window.GetProperty("ADV.Image Blur Background Level (0-100)"); this.blurLevel = this.blur_blend ? 91.05 - Math.max(Math.min(blur_tmp, 90), 1.05) : Math.max(Math.min(blur_tmp * 2, 254), 0); window.SetProperty("SYSTEM.Blur Blend Theme", this.blur_blend); window.SetProperty("SYSTEM.Blur Dark Theme", this.blur_dark); window.SetProperty("SYSTEM.Blur Light Theme", this.blur_light); window.SetProperty("SYSTEM.Image Background", this.imgBg); this.blurReset(true);
     }
     this.blurReset = function(clear) {if (blurImg) blurImg.Dispose(); blurImg = false; image_path_o = ""; if (clear) on_colours_changed(); this.on_playback_new_track();}
-    this.create_images = function() {var cc = StringFormat(1, 1), font1 = gdi.Font("Segoe UI", 270, 1), font2 = gdi.Font("Segoe UI", 120, 1), font3 = gdi.Font("Segoe UI", 200, 1), font4 = gdi.Font("Segoe UI", 90, 1), gb, tcol = !this.blur_dark && !this.blur_light ? this.textcol : this.dui ? window.GetColourDUI(0) : window.GetColourCUI(0); noimg = ["COVER", "SELECTION"]; for (var i = 0; i < noimg.length; i++) {var n = noimg[i]; noimg[i] = gdi.CreateImage(500, 500); gb = noimg[i].GetGraphics(); gb.SetSmoothingMode(2); if (!this.blur_dark && !this.blur_light) {gb.FillSolidRect(0, 0, 500, 500, tcol); gb.FillGradRect(-1, 0, 505, 500, 90, this.backcol & 0xbbffffff, this.backcol, 1.0);} gb.SetTextRenderingHint(3); gb.DrawString("NO", i ? font3 : font1, tcol & 0x25ffffff, 0, 0, 500, 275, cc); gb.DrawString(n, i ? font4 : font2, tcol & 0x20ffffff, 2.5, 175, 500, 275, cc); gb.FillSolidRect(60, 388, 380, 50, tcol & 0x15ffffff); noimg[i].ReleaseGraphics(gb);} this.get = true;}; this.create_images();
+    this.create_images = function() {var cc = StringFormat(1, 1), font1 = gdi.Font("InconsolataGo QiHei NF", 270, 1), font2 = gdi.Font("InconsolataGo QiHei NF", 120, 1), font3 = gdi.Font("InconsolataGo QiHei NF", 200, 1), font4 = gdi.Font("InconsolataGo QiHei NF", 90, 1), gb, tcol = !this.blur_dark && !this.blur_light ? this.textcol : this.dui ? window.GetColourDUI(0) : window.GetColourCUI(0); noimg = ["COVER", "SELECTION"]; for (var i = 0; i < noimg.length; i++) {var n = noimg[i]; noimg[i] = gdi.CreateImage(500, 500); gb = noimg[i].GetGraphics(); gb.SetSmoothingMode(2); if (!this.blur_dark && !this.blur_light) {gb.FillSolidRect(0, 0, 500, 500, tcol); gb.FillGradRect(-1, 0, 505, 500, 90, this.backcol & 0xbbffffff, this.backcol, 1.0);} gb.SetTextRenderingHint(3); gb.DrawString("NO", i ? font3 : font1, tcol & 0x25ffffff, 0, 0, 500, 275, cc); gb.DrawString(n, i ? font4 : font2, tcol & 0x20ffffff, 2.5, 175, 500, 275, cc); gb.FillSolidRect(60, 388, 380, 50, tcol & 0x15ffffff); noimg[i].ReleaseGraphics(gb);} this.get = true;}; this.create_images();
     this.draw = function(gr) {try {if (this.bg) gr.FillSolidRect(0, 0, this.w, this.h, this.backcol); if (!this.blur && !this.imgBg) return; this.get_img_fallback(); if (blurImg) gr.DrawImage(blurImg, 0, 0, this.w, this.h, 0, 0, blurImg.Width, blurImg.Height);} catch (e) {}}
     this.focus_changed = function(ms) {k++; if (k == 1) {this.on_playback_new_track(); timer.reset(timer.focus, timer.focusi); timer.focus = window.SetTimeout(function() {k = 0; timer.focus = false;}, ms); return;} timer.reset(timer.focus, timer.focusi); timer.focus = window.SetTimeout(function() {ui.on_playback_new_track(); k = 0; timer.focus = false;}, ms);}
     this.get_album_art_done = function(image, image_path) {if (image_path_o == image_path && blurImg && image) return window.Repaint(); image_path_o = image_path; if (!image) image = stub(0); if (!image) {if (blurImg) blurImg.Dispose(); blurImg = false; return;} this.blur_img(image);}
@@ -354,8 +354,8 @@ function panel_operations() {
     if (!this.s_show) this.autofit = true;
     if (!ui.zoomUpd && window.GetProperty("SYSTEM.Software Notice Checked")) window.SetProperty(" Zoom Filter Size (%)", window.GetProperty(" Zoom Filter Size (%)", 100) / ui.scale);
     this.scale = Math.max(window.GetProperty(" Zoom Filter Size (%)", 100) / 100, 0.7); window.SetProperty(" Zoom Filter Size (%)", this.scale * 100);
-    this.f_font = gdi.Font("Segoe UI", this.scale > 1.05 ? Math.floor(11 * ui.scale * this.scale) : 11 * ui.scale * this.scale, 1);
-    this.f_but_ft = gdi.Font("Segoe UI", this.scale > 1.05 ? Math.floor(9 * ui.scale * this.scale) : 9 * ui.scale * this.scale, 1);
+    this.f_font = gdi.Font("InconsolataGo QiHei NF", this.scale > 1.05 ? Math.floor(11 * ui.scale * this.scale) : 11 * ui.scale * this.scale, 1);
+    this.f_but_ft = gdi.Font("InconsolataGo QiHei NF", this.scale > 1.05 ? Math.floor(9 * ui.scale * this.scale) : 9 * ui.scale * this.scale, 1);
     this.filter_by = window.GetProperty("SYSTEM.Filter By", 0);
     this.full_line = window.GetProperty(" Text Whole Line Clickable", false);
     this.pn_h_auto = window.GetProperty("ADV.Height Auto [Expand/Collapse With Root]", false) && this.base; this.init = true;
@@ -1404,7 +1404,7 @@ function button_manager() {
     var arrow_sy = window.GetProperty(" Scrollbar Arrow Custom: Icon // Examples", " // ▲  ⮝    ⯅ ⏫ ⏶ ⤊   "), arrow_symb = 0; if (window.GetProperty(" Scrollbar Arrow Custom", false)) try {arrow_symb = arrow_sy.replace(/\s+/g, "").charAt(0);} catch (e) {arrow_symb = 0} if (!arrow_symb.length) arrow_symb = 0;
     var custom_col = window.GetProperty("_CUSTOM COLOURS/FONTS: USE", false), cust_icon_font = window.GetProperty("_Custom.Font Icon [Scroll] (Name,Style[0or1])", "Segoe UI Symbol,0"), icon_f_name= "Segoe UI", icon_f_style = 0, pad = Math.min(Math.max(window.GetProperty(" Scrollbar Arrow Custom: Icon: Vertical Offset %", -24) / 100, -0.5), 0.3);
     if (custom_col) {if (cust_icon_font.length) {cust_icon_font = cust_icon_font.split(","); try {var st = Math.round(parseFloat(cust_icon_font[1])); if (!st) st = 0; var font_test = gdi.Font(cust_icon_font[0], 16, st); icon_f_name = cust_icon_font[0]; icon_f_style = st;} catch (e) {ui.trace("JScript Panel is unable to use your scroll icon font. Using Segoe UI instead");}}}
-    var b_x, b3 = ["scrollUp", "scrollDn"], but_tt = window.CreateTooltip("Segoe UI", 15 * ui.scale * window.GetProperty(" Zoom Tooltip [Button] (%)", 100) / 100, 0), bx, by, bh, byDn, byUp, fw, hot_o, i, qx, qy, qh, s_img = [], scr = [], scrollBut_x, scrollDn_y, scrollUp_y;
+    var b_x, b3 = ["scrollUp", "scrollDn"], but_tt = window.CreateTooltip("InconsolataGo QiHei NF", 15 * ui.scale * window.GetProperty(" Zoom Tooltip [Button] (%)", 100) / 100, 0), bx, by, bh, byDn, byUp, fw, hot_o, i, qx, qy, qh, s_img = [], scr = [], scrollBut_x, scrollDn_y, scrollUp_y;
     this.btns = []; this.b = null; this.Dn = false;
     var browser = function(c) {if (!but.run(c)) fb.ShowPopupMessage("Unable to launch your default browser.", "Library Tree");}
     var tooltip = function(n) {if (but_tt.text == n) return; but_tt.text = n; but_tt.activate();}

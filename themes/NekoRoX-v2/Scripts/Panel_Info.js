@@ -41,9 +41,9 @@ var g_has_modded_jscript = qwr_utils.has_modded_jscript();
 })();
 
 var g_tr_i_fonts = {
-    info_name: gdi.Font('Segoe Ui Semibold', 12),
-    info_value: gdi.Font('Segoe Ui', 12),
-    dummy_text: gdi.Font('Segoe Ui Semibold', 24)
+    info_name: gdi.Font('InconsolataGo QiHei NF', 12),
+    info_value: gdi.Font('InconsolataGo QiHei NF', 12),
+    dummy_text: gdi.Font('InconsolataGo QiHei NF', 24)
 };
 
 var g_tr_i_colors = {

@@ -25,7 +25,7 @@ function userinterface() {
         var cust_f = window.GetProperty("_Custom.Font AlbManager (Name,Size,Style[0-4])", "Segoe UI,16,0");
         if (custom_col && cust_f.length) {cust_f = cust_f.replace(/^[,\s]+|[,\s]+$/g, "").split(","); try {this.font = gdi.Font(cust_f[0], Math.round(parseFloat(cust_f[1])), Math.round(parseFloat(cust_f[2])));} catch (e) {}}
         else if (this.dui) this.font = window.GetFontDUI(2); else this.font = window.GetFontCUI(0);
-        try {this.font.Name; this.font.Size; this.font.Style;} catch (e) {this.font = gdi.Font("Segoe UI", 16, 0); p.trace("JScript panel is unable to use your default font. Using Segoe UI at default size & style instead");}
+        try {this.font.Name; this.font.Size; this.font.Style;} catch (e) {this.font = gdi.Font("InconsolataGo QiHei NF", 16, 0); p.trace("JScript panel is unable to use your default font. Using InconsolataGo QiHei NF at default size & style instead");}
         orig_font_sz = window.GetProperty("SYSTEM.Font Size", 16);
         if (this.font.Size != orig_font_sz) window.SetProperty(" Zoom Font Size (%)", 100);
         orig_font_sz = this.font.Size; window.SetProperty("SYSTEM.Font Size", this.font.Size);
@@ -34,7 +34,7 @@ function userinterface() {
         this.font = gdi.Font(this.font.Name, zoom_font_sz, this.font.Style);
         window.SetProperty(" Zoom Font Size (%)", Math.round(zoom_font_sz / orig_font_sz * 100));
         var s = this.font.Style; style = s == 0 ? 2 : s == 1 ? 3 : s == 2 ? 0 : s == 3 ? 1 : s; this.head = gdi.Font(this.font.name, this.font.Size, style);
-        this.pc = gdi.Font("Segoe UI", 9 * this.scale, style); // edit for custom playcount header font
+        this.pc = gdi.Font("InconsolataGo QiHei NF", 9 * this.scale, style); // edit for custom playcount header font
         alb.calc_text(); alb.calc_rows(); alb.calc_rows_alb(); alb.calc_rows_art(); but.refresh(true);
     }
 
@@ -2392,7 +2392,7 @@ function button_manager() {
     var arrow_sy = window.GetProperty(" Scrollbar Arrow Custom: Icon // Examples", " // ▲  ⮝    ⯅ ⏫ ⏶ ⤊   "), arrow_symb = 0; if (window.GetProperty(" Scrollbar Arrow Custom", false)) try {arrow_symb = arrow_sy.replace(/\s+/g, "").charAt(0);} catch (e) {arrow_symb = 0} if (!arrow_symb.length) arrow_symb = 0;
     var custom_col = window.GetProperty("_CUSTOM COLOURS/FONTS: USE", false), cust_icon_font = window.GetProperty("_Custom.Font Icon [Scroll] (Name,Style[0or1])", "Segoe UI Symbol,0"), icon_f_name= "Segoe UI", icon_f_style = 0, pad = Math.min(Math.max(window.GetProperty(" Scrollbar Arrow Custom: Icon: Vertical Offset %", -24) / 100, -0.5), 0.3);
     if (custom_col) {if (cust_icon_font.length) {cust_icon_font = cust_icon_font.split(","); try {var st = Math.round(parseFloat(cust_icon_font[1])); if (!st) st = 0; var font_test = gdi.Font(cust_icon_font[0], 16, st); icon_f_name = cust_icon_font[0]; icon_f_style = st;} catch (e) {p.trace("JScript Panel is unable to use your scroll icon font. Using Segoe UI instead");}}}
-    var b1 = ["all", "album", "comp", "single", "remix", "lock", "toggle", "more", "mode", "cross", "yt"], b2 = ["topalbums", "toptracks", "topsongs", "lock", "toggle", "more", "mode", "cross", "yt"], b3 = ["alb_scrollDn", "alb_scrollUp", "art_scrollDn", "art_scrollUp"], i, tt = window.CreateTooltip("Segoe UI", 15 * ui.scale * window.GetProperty(" Zoom Tooltip (%)", 100) / 100, 0);
+    var b1 = ["all", "album", "comp", "single", "remix", "lock", "toggle", "more", "mode", "cross", "yt"], b2 = ["topalbums", "toptracks", "topsongs", "lock", "toggle", "more", "mode", "cross", "yt"], b3 = ["alb_scrollDn", "alb_scrollUp", "art_scrollDn", "art_scrollUp"], i, tt = window.CreateTooltip("InconsolataGo QiHei NF", 15 * ui.scale * window.GetProperty(" Zoom Tooltip (%)", 100) / 100, 0);
     if (!window.GetProperty("SYSTEM.Zoom Update", false) && window.GetProperty("SYSTEM.Software Notice Checked")) window.SetProperty(" Zoom Button Size (%)", window.GetProperty(" Zoom Button Size (%)", 100) / ui.scale); window.SetProperty("SYSTEM.Zoom Update", true);
     var scale = Math.max(window.GetProperty(" Zoom Button Size (%)", 100) / 100, 0.7); window.SetProperty(" Zoom Button Size (%)", scale * 100); this.scale = ui.scale * scale;
     this.b = null; this.btns = []; this.Dn = false; this.yt_w = 22 * this.scale, this.yt_h = 16 * this.scale;
@@ -2484,7 +2484,7 @@ function button_manager() {
     this.refresh = function(upd) {
         if (upd) {
             var bor = alb.border(); bx = p.btn_mode ? 0 : p.w - bor - this.yt_w; by = p.btn_mode ? 0 : bor * 0.625; b_w = 36 * this.scale; bw = 35 * this.scale; bh = 16 * this.scale; ht = alb.fit()[2]; mx = alb.fit()[0]; yt_x = p.rel_imgs == 1 && !p.btn_mode ? bx + bor : bx; yt_y = p.rel_imgs == 1 && !p.btn_mode ? 0 : by;
-            font1 =  gdi.Font("segoe ui", scale > 1.05 ? Math.floor(15 * this.scale) : 15 * this.scale, 1); font2 = gdi.Font("segoe ui", 14 * this.scale, 1); font3 = gdi.Font("segoe ui", scale > 1.05 ? Math.floor(11 * this.scale) : 11 * this.scale, 1); font4 = gdi.Font("segoe ui", 12 * this.scale, 1);
+            font1 =  gdi.Font("InconsolataGo QiHei NF", scale > 1.05 ? Math.floor(15 * this.scale) : 15 * this.scale, 1); font2 = gdi.Font("InconsolataGo QiHei NF", 14 * this.scale, 1); font3 = gdi.Font("InconsolataGo QiHei NF", scale > 1.05 ? Math.floor(11 * this.scale) : 11 * this.scale, 1); font4 = gdi.Font("InconsolataGo QiHei NF", 12 * this.scale, 1);
             b_x = p.sbar_x; alb_byUp =  alb_scrollbar.y; alb_byDn =  alb_scrollbar.y + alb_scrollbar.h - p.but_h; art_byUp =  art_scrollbar.y; art_byDn =  art_scrollbar.y + art_scrollbar.h - p.but_h;
             if (p.scr_type < 2) {b_x -= 1; alb_hot_o = alb_byUp - alb_scrollbar.text_y; albUp_y = -p.arrow_pad + alb_byUp + (p.but_h - 1 - p.scr_but_w) / 2; albDn_y = p.arrow_pad + alb_byDn + (p.but_h - 1 - p.scr_but_w) / 2; art_hot_o = art_byUp - art_scrollbar.text_y; artUp_y = -p.arrow_pad + art_byUp + (p.but_h - 1 - p.scr_but_w) / 2; artDn_y = p.arrow_pad + art_byDn + (p.but_h - 1 - p.scr_but_w) / 2; scrollBut_x = (p.but_h - p.scr_but_w) / 2;}
         }
@@ -2691,7 +2691,7 @@ function image_manager() {
     }
 
     this.create_images = function() {
-        var cc = StringFormat(1, 1), font1 = gdi.Font("Segoe UI", 270, 1), font2 = gdi.Font("Segoe UI", 120, 1), font3 = gdi.Font("Segoe UI", 200, 1), font4 = gdi.Font("Segoe UI", 90, 1), gb, tcol = !ui.blur_dark && !ui.blur_light || (this.border != 1 && this.border != 3) ? ui.textcol : ui.dui ? window.GetColourDUI(0) : window.GetColourCUI(0);
+        var cc = StringFormat(1, 1), font1 = gdi.Font("InconsolataGo QiHei NF", 270, 1), font2 = gdi.Font("InconsolataGo QiHei NF", 120, 1), font3 = gdi.Font("InconsolataGo QiHei NF", 200, 1), font4 = gdi.Font("InconsolataGo QiHei NF", 90, 1), gb, tcol = !ui.blur_dark && !ui.blur_light || (this.border != 1 && this.border != 3) ? ui.textcol : ui.dui ? window.GetColourDUI(0) : window.GetColourCUI(0);
         this.noimg = ["COVER", "PHOTO", "SELECTION"];
         for (var i = 0; i < this.noimg.length; i++) {
             var n = this.noimg[i];

@@ -26,8 +26,8 @@ g_properties.add_properties(
 
 /** @type {Object<string, IGdiFont>} */
 var g_ultra_mini_fonts = {
-    title:      gdi.Font('Segoe Ui Semibold', 12),
-    dummy_text: gdi.Font('Segoe Ui Semibold', 24)
+    title:      gdi.Font('InconsolataGo QiHei NF', 12),
+    dummy_text: gdi.Font('InconsolataGo QiHei NF', 24)
 };
 
 /** @type {Object<string, number>} */

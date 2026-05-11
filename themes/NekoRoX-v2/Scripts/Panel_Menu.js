@@ -79,7 +79,7 @@ g_properties.add_properties(
     g_hta_window.manager.center();
 })();
 
-qwr_utils.check_fonts(['Segoe Ui', 'Segoe Ui Semibold', 'Segoe Ui Symbol', 'Consolas', 'Marlett', 'Guifx v2 Transports', 'FontAwesome']);
+qwr_utils.check_fonts(['InconsolataGo QiHei NF', 'Segoe Ui Symbol', 'Marlett', 'Guifx v2 Transports', 'FontAwesome']);
 
 var g_has_modded_jscript = qwr_utils.has_modded_jscript();
 
@@ -93,8 +93,8 @@ var g_has_modded_jscript = qwr_utils.has_modded_jscript();
 
 /** @type {Object<string, IGdiFont>} */
 var g_menu_fonts = {
-    title: gdi.Font('Segoe Ui Semibold', 11),
-    menu_button: gdi.Font('Segoe Ui Semibold', 12)
+    title: gdi.Font('InconsolataGo QiHei NF', 11),
+    menu_button: gdi.Font('InconsolataGo QiHei NF', 12)
 };
 
 /** @type {Object<string, number>} */

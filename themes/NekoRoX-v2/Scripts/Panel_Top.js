@@ -21,7 +21,7 @@ var g_component_scrobble = _.cc('foo_scrobble');
 
 /** @type {Object<string, IGdiFont>} */
 var g_top_panel_fonts = {
-    info: gdi.Font('Segoe Ui Semibold', 14)
+    info: gdi.Font('InconsolataGo QiHei NF', 14)
 };
 
 /** @type {Object<string, number>} */

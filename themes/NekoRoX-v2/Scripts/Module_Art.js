@@ -20,8 +20,8 @@ g_properties.add_properties(
 
 /** @type {Object<string, IGdiFont>} */
 var g_art_module_fonts = {
-    title: gdi.Font('Segoe Ui Semibold', 24),
-    box:   gdi.Font('Segoe Ui', 14)
+    title: gdi.Font('InconsolataGo QiHei NF', 24),
+    box:   gdi.Font('InconsolataGo QiHei NF', 14)
 };
 
 /** @type {Object<string, number>} */

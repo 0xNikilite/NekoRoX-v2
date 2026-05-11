@@ -80,25 +80,25 @@ var g_drop_effect = {
 
 /** @type {Object<string, IGdiFont>} */
 var g_pl_fonts = {
-    title_normal: gdi.Font('Segoe Ui', 12),
-    title_selected: gdi.Font('Segoe Ui Semibold', 12),
-    title_playing: gdi.Font('Segoe Ui Semibold', 12),
+    title_normal: gdi.Font('InconsolataGo QiHei NF', 12),
+    title_selected: gdi.Font('InconsolataGo QiHei NF', 12),
+    title_playing: gdi.Font('InconsolataGo QiHei NF', 12),
 
-    artist_normal: gdi.Font('Segoe Ui Semibold', 18),
-    artist_playing: gdi.Font('Segoe Ui Semibold', 18, g_font_style.underline),
-    artist_normal_compact: gdi.Font('Segoe Ui Semibold', 15),
-    artist_playing_compact: gdi.Font('Segoe Ui Semibold', 15, g_font_style.underline),
+    artist_normal: gdi.Font('InconsolataGo QiHei NF', 18),
+    artist_playing: gdi.Font('InconsolataGo QiHei NF', 18, g_font_style.underline),
+    artist_normal_compact: gdi.Font('InconsolataGo QiHei NF', 15),
+    artist_playing_compact: gdi.Font('InconsolataGo QiHei NF', 15, g_font_style.underline),
 
-    playcount: gdi.Font('Segoe Ui', 9),
-    album: gdi.Font('Segoe Ui Semibold', 15),
-    date: gdi.Font('Segoe UI Semibold', 16, g_font_style.bold),
-    date_compact: gdi.Font('Segoe UI Semibold', 15),
-    info: gdi.Font('Segoe Ui', 11),
-    cover: gdi.Font('Segoe Ui Semibold', 11),
+    playcount: gdi.Font('InconsolataGo QiHei NF', 9),
+    album: gdi.Font('InconsolataGo QiHei NF', 15),
+    date: gdi.Font('InconsolataGo QiHei NF', 16, g_font_style.bold),
+    date_compact: gdi.Font('InconsolataGo QiHei NF', 15),
+    info: gdi.Font('InconsolataGo QiHei NF', 11),
+    cover: gdi.Font('InconsolataGo QiHei NF', 11),
     rating_not_set: gdi.Font('Segoe Ui Symbol', 14),
     rating_set: gdi.Font('Segoe Ui Symbol', 16),
 
-    dummy_text: gdi.Font('Segoe Ui', 16)
+    dummy_text: gdi.Font('InconsolataGo QiHei NF', 16)
 };
 
 /** @type {Object<string, number>} */

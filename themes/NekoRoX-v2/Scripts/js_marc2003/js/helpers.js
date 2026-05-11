@@ -1194,7 +1194,7 @@ try {
 var LM = _.scale(5);
 var TM = _.scale(16);
 
-var tooltip = window.CreateTooltip('Segoe UI', _.scale(9));
+var tooltip = window.CreateTooltip('InconsolataGo QiHei NF', _.scale(9));
 tooltip.SetMaxWidth(1200);
 
 var folders = {};
